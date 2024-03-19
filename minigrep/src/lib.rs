@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::fs;
 
+/// Struct for holding CLI arguments
 pub struct Config {
     pub query: String,
     pub file_path: String,
@@ -19,6 +20,7 @@ impl Config {
     }
 }
 
+/// Searches a file for the query string
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.file_path)?;
     println!("\nWith text:\n{}", contents);
